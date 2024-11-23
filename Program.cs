@@ -1,21 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace index2
+class Program
 {
-    internal class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        
+        int year = 2024;  
+        int month = 8;    
+
+        
+        DateTime firstDay = new DateTime(year, month, 1); 
+        int daysInMonth = DateTime.DaysInMonth(year, month); 
+        int startDay = (int)firstDay.DayOfWeek;
+
+        
+        int[][] calendar = new int[6][]; 
+        int currentDay = 1; 
+
+      
+        for (int week = 0; week < calendar.Length; week++) 
         {
-            int num1 = 10, num2 = 20;
-            Console.WriteLine($"Before Swapping={num1},{num2}");
-            num1 = num1 * num2;
-            num2 = num1 / num2;
-            num1 = num1 / num2;
-            Console.WriteLine($"After Swapping={num1},{num2}");
+            calendar[week] = new int[7]; 
+
+            for (int day = 0; day < 7; day++) 
+            {
+                
+                if ((week == 0 && day < startDay) || currentDay > daysInMonth)
+                {
+                    calendar[week][day] = 0; 
+                }
+                else
+                {
+                    calendar[week][day] = currentDay++; 
+                }
+            }
+        }
+
+        
+        Console.WriteLine($"Calendar for {firstDay:MMMM yyyy}"); 
+        Console.WriteLine("Su Mo Tu We Th Fr Sa"); 
+        
+        foreach (var week in calendar)
+        {
+            
+            foreach (var day in week)
+            {
+                
+                Console.Write(day == 0 ? "   " : $"{day,2} ");
+            }
+            Console.WriteLine(); 
         }
     }
 }
