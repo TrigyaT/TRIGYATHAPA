@@ -1,21 +1,26 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace index2
+namespace BubbleSortDemo
 {
-    internal class Program
-    {
-        static void Main(string[] args)
+        class Program
         {
-            int num1 = 10, num2 = 20;
-            Console.WriteLine($"Before Swapping={num1},{num2}");
-            num1 = num1 * num2;
-            num2 = num1 / num2;
-            num1 = num1 / num2;
-            Console.WriteLine($"After Swapping={num1},{num2}");
+            static void Main(string[] args)
+            {
+                // Array sorting
+                int[] numbers = { 51, 36, 58, 11, 25 };
+                Console.WriteLine("Before sorting the array: " + string.Join(", ", numbers));
+
+                CustomBubbleSort sorter = new CustomBubbleSort();
+                sorter.Sort(numbers); // Calls the overridden method
+                Console.WriteLine("After sorting the  array: " + string.Join(", ", numbers));
+
+            
+            }
         }
     }
-}
+
