@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace index2
+namespace Calculator
 {
-    internal class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-            int num1 = 10, num2 = 20;
-            Console.WriteLine($"Before Swapping={num1},{num2}");
-            num1 = num1 * num2;
-            num2 = num1 / num2;
-            num1 = num1 / num2;
-            Console.WriteLine($"After Swapping={num1},{num2}");
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
+            Application.Run(new Form1());
         }
     }
 }
